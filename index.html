@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type-master</title>
+    <link rel="shortcut icon" href="#" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="level">
+      <p>
+        Choose your Level
+        <select id="level_cate">
+          <option id="1" value="800">1</option>
+          <option id="2" value="600">2</option>
+          <option id="3" value="500">3</option>
+        </select>
+      </p>
+    </div>
+    <div class="score">0</div>
+    <div class="info">
+      <button id="start">start</button>
+      <button id="reset">reset</button>
+      <div class="timer">
+        <h2 class="text-center" id="count-down-timer"></h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="playground"></div>
+      <input
+        class="your_input"
+        type="text"
+        placeholder="please type the words."
+      />
+      <button>Enter</button>
+    </div>
+  </body>
+</html>

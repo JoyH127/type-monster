@@ -35,10 +35,13 @@
       </div>
     </div>
     <div class="container">
-      <div class="playground"></div>
+      <div class="playground">
+        <p class="health">health 5</p>
+      </div>
       <input
         class="your_input"
         type="text"
+        onkeypress="clickPress(event)"
         placeholder="please type the words."
       />
       <button>Enter</button>

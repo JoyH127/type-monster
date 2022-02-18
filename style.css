@@ -71,9 +71,18 @@ button:hover {
 }
 
 .words > p {
-  display: block;
   margin: 10px;
   float: left;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+.words > p .hidden {
+  display: none;
+}
+
+.health {
+  position: absolute;
+  top: 695px;
+  left: 650px;
 }

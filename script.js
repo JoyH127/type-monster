@@ -10,6 +10,9 @@ const BASE_URL = "https://random-word-api.herokuapp.com/";
 const score = document.querySelector(".score");
 const timer = document.querySelector("#count-down-timer");
 const resetbtn = document.querySelector("#reset");
+let count = 0;
+let userHealth = document.querySelector(".health");
+let health = 5;
 
 // call api dataset
 startBtn.addEventListener("click", async () => {
@@ -23,22 +26,57 @@ startBtn.addEventListener("click", async () => {
     console.log(error);
   }
 });
+
+//Render the code
 function showWord(word) {
   for (let i = 0; i < word.length; i++) {
-    console.log(word[i]);
-    wordList.innerHTML += `<p class='hidden'>${word[i]}</p>`;
+    wordList.innerHTML += `<p id ='${word[i]}'>${word[i]}</p>`;
   }
-  console.log(wordList);
-
+  console.log(wordList.childNodes[3].id);
   //set interval for fall words
   //   let downInterval = setInterval((i) => {
   //     move();
   //   }, pace);
+  // match the answer
 }
 
+// function checkAnswer(answer) {
+//   const list = wordList.childNodes;
+//   list.forEach((index) => {
+//     if (index.id === answer) {
+//       index.classList.add("hidden");
+//     }
+//   });
+// }
+
+//check events
+function clickPress(event) {
+  if (event.keyCode == 13) {
+    let answer = userInput.value;
+    event.currentTarget.value = "";
+    const list = wordList.childNodes;
+    for (let i = 0; i < 50; i++) {
+      console.log(list[i].id);
+      if (list[i].id == answer) {
+        list[i].classList.add("hidden");
+        list[i].parentNode.removeChild(list[i]);
+        count++;
+        score.textContent = `${count}`;
+        // userHealth.textContent = `health ${health}`;
+      }
+    }
+    console.log(list);
+  }
+}
+
+//reset button activated
 resetbtn.addEventListener("click", () => {
   location.reload();
 });
+
+//enter input
+
+console.log(wordList);
 
 //countDown function
 function countDown(pace) {
@@ -94,11 +132,9 @@ function startCountDown(duration, element) {
     if (secondsRemaining < 0) {
       clearInterval(countInterval);
     }
+
+    if (count >= 10) {
+      alert("you win! you got more than 10!");
+    }
   }, 1000);
-
-  // show up some
 }
-
-// match the answer
-
-function checkanswer() {}
